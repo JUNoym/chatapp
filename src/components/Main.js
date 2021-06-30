@@ -18,7 +18,7 @@ const Main = (name) => {
     return (
         <div className={classes.root}>
             <Header />
-            <MessageList />
+            <MessageList name={name} />
             <MessageInput name={name} />
         </div>
     )
