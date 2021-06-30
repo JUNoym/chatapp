@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { TextField } from '@material-ui/core'
+import { PushMessage } from '../firebase'
 
 const InnerMessegeInput = ({ name, setText, text }) => {
-    console.log({ text });
     const [isComposed, setIsComposed] = useState(false);
-
 
     return (
         <TextField
+            autoFocus
             fullWidth={true}
             onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => {
@@ -18,7 +18,7 @@ const InnerMessegeInput = ({ name, setText, text }) => {
                 if (text === '') return;
 
                 if (e.key === 'Enter') {
-                    // pushMessage({ name, text });
+                    PushMessage({ name, text });
                     setText('');
                     e.preventDefault();
                 }
