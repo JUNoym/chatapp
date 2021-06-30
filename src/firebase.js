@@ -13,7 +13,7 @@ firebase.initializeApp(firebaseConfig)
 const database = firebase.database()
 
 // RealTime Databaseのどの名前空間にデータを追加するのかを設定する
-const messagesRef = database.ref('messages')
+export const messagesRef = database.ref('messages')
 
 // ボタンやエンターキーが押された時に実行するのでexportする
 export const PushMessage = ({ name, text }) => {
