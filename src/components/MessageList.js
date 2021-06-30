@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import { messagesRef } from '../firebase'
+import { List } from '@material-ui/core';
+import MessageItem from './MessageItem'
 
 const useStyles = makeStyles({
     root: {
-        gridRow: 2
+        gridRow: 2,
+        overflow: 'auto',
     }
 })
-const MessageList = () => {
+const MessageList = ({ name, key, text }) => {
     const classes = useStyles()
     const [messages, setMessages] = useState([])
     useEffect(() => {
         messagesRef
             .orderByKey()
-            .limitToLast(3) //最新のデータ3件分を取得する
+            .limitToLast(5) //最新のデータ5件分を取得する
             .on('value', (snapshot) => {
                 //key: -MdSPw-qYbo2jmz-n0Oz, value:{name: {…}, text: "from button"}
                 //{key: -MdSPw-qYbo2jmz-n0Oz, name: 'Junya', text: "from button"}に変更する
@@ -34,9 +37,13 @@ const MessageList = () => {
     // 時系列順に表示させることができる
 
     return (
-        <div className={classes.root}>
-            MessageList
-        </div>
+        <List className={classes.root}>
+            {
+                messages.map(({ key, name, text }) => {
+                    return <MessageItem key={key} name={name} text={text}></MessageItem>
+                })
+            }
+        </List>
     )
 }
 
