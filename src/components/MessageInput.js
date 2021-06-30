@@ -19,11 +19,11 @@ const MessageInput = ({ name }) => {
     return (
         <div className={classes.root}>
             <Grid container>
-                <Grid xs={10}>
+                <Grid item xs={10}>
                     {/* InnerMessageInputで何か入力されるたびにsetTextを呼び出してtextを変更する */}
                     <InnerMessageInput name={name} setText={setText} text={text} />
                 </Grid>
-                <Grid xs={2} >
+                <Grid item xs={2} >
                     ボタン
                 </Grid>
             </Grid>
