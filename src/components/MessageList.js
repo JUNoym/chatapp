@@ -10,7 +10,7 @@ const useStyles = makeStyles({
         overflow: 'auto',
     }
 })
-const MessageList = ({ name, key, text }) => {
+const MessageList = ({ name, key, text, time }) => {
     const classes = useStyles()
     const [messages, setMessages] = useState([])
     useEffect(() => {
@@ -39,8 +39,8 @@ const MessageList = ({ name, key, text }) => {
     return (
         <List className={classes.root}>
             {
-                messages.map(({ key, name, text }) => {
-                    return <MessageItem key={key} name={name} text={text}></MessageItem>
+                messages.map(({ key, name, text, time }) => {
+                    return <MessageItem key={key} name={name} text={text} time={time}></MessageItem>
                 })
             }
         </List>

@@ -6,7 +6,8 @@ const useStyles = makeStyles({
     header: {
         background: 'green',
         color: 'white',
-        fontSize: 'bold'
+        fontWeight: 'bold',
+        padding: '15px'
     }
 })
 
@@ -14,7 +15,7 @@ const Header = () => {
     const classes = useStyles();
     return (
         <div className={classes.header}>
-            リアルタイムチャットアプリ
+            RealTime Chat
         </div>
     )
 }

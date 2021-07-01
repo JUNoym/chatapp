@@ -5,6 +5,8 @@ import {
     Typography,
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import DisplayTime from './DisplayTime'
+
 
 const useStyles = makeStyles({
     inline: {
@@ -12,7 +14,7 @@ const useStyles = makeStyles({
     },
 })
 
-const MessageItem = ({ name, text }) => {
+const MessageItem = ({ name, text, time }) => {
     console.log((text))
     const classes = useStyles();
     return (
@@ -28,6 +30,8 @@ const MessageItem = ({ name, text }) => {
                         color="textPrimary"
                     >
                         {text}
+                        {time}
+                        <DisplayTime />
                     </Typography>
                 }
             />
