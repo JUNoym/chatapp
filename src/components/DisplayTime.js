@@ -1,12 +1,19 @@
 import React from 'react'
-import { useSelector } from "react-redux";
+import { makeStyles } from '@material-ui/core/styles'
 
-const DisplayTime = () => {
-    const time = useSelector((state) => state.time);
+const useStyles = makeStyles({
+    inline: {
+        display: 'flex',
+        textAlign: 'flex-end',
+        background: 'white',
+    },
+})
 
+const DisplayTime = ({ time, text }) => {
+    const classes = useStyles();
     return (
-        <div>
-            <div>{time}</div>
+        <div className={classes.inline}>
+            {time}
         </div>
     )
 }

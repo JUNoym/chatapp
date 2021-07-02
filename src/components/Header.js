@@ -4,10 +4,12 @@ import { colors } from '@material-ui/core';
 
 const useStyles = makeStyles({
     header: {
-        background: 'green',
+        background: 'deepskyblue',
+        border: '5px solid white',
         color: 'white',
         fontWeight: 'bold',
-        padding: '15px'
+        padding: '15px',
+        borderRadius: '5px'
     }
 })
 
