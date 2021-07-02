@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     },
 })
 
-const DisplayTime = ({ time, text }) => {
+const DisplayTime = ({ time }) => {
     const classes = useStyles();
     return (
         <div className={classes.inline}>

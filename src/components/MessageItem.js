@@ -9,13 +9,9 @@ import DisplayTime from './DisplayTime'
 
 
 const useStyles = makeStyles({
-    parent: {
-        // position: 'relative'
-    },
     inline: {
         display: 'flex',
         fontSize: '10px',
-        // marginTop: '30px'
         textAlign: 'flex-end'
     },
 })
@@ -38,13 +34,11 @@ const MessageItem = ({ name, text, time }) => {
                             {text}
                         </Typography>
                     </div>
-
                 }
             />
             <div className={classes.inline}>
                 <DisplayTime className={classes.inline} time={time} />
             </div>
-
         </ListItem >
     )
 }

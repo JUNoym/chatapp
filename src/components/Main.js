@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles'
 import MessageInput from './MessageInput'
 import MessageList from './MessageList'
 import Header from './Header'
-import { useSelector } from "react-redux";
 
 
 const useStyles = makeStyles({
