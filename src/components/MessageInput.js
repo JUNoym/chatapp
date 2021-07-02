@@ -10,7 +10,6 @@ const useStyles = makeStyles({
     root: {
         gridRow: 3,
         margin: '25px'
-
     }
 })
 

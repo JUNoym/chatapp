@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 
 const initialState = {
-    time: ''
+    time: '18時00分'
 }
 
 const reducer = (state = initialState, action) => {
@@ -10,8 +10,6 @@ const reducer = (state = initialState, action) => {
             let today = new Date();
             const data2 = today.getHours() + '時' + today.getMinutes() + '分'
             today = String(data2)
-            // console.log(today)
-            // console.log(typeof (today))
             return {
                 time: state.time = today,
             };

@@ -33,7 +33,6 @@ const MessageList = () => {
                 })
                 console.log(changeNewMessages);
                 setMessages(changeNewMessages)
-                // setTimes(changeNewMessages)
             })
     }, [])
     // messageRef.on()でデータを取得する
