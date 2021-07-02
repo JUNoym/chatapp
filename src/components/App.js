@@ -2,6 +2,11 @@ import React, { useState, Component } from 'react';
 import SignIn from './SignIn'
 import Main from './Main'
 import config from '../config.json'
+import store from '../app/store'
+import { useSelector, useDispatch } from "react-redux";
+
+
+
 
 export default () => {
   const [name, setName] = useState('')

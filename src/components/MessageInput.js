@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Avatar, Grid } from '@material-ui/core'
-import { gravatarPath } from '../gravatar'
+import { Grid } from '@material-ui/core'
 import InnerMessageInput from './InnerMessegeInput'
 import MessegeSubmitButton from './MessegeSubmitButton'
+import { useSelector } from "react-redux";
+
 
 const useStyles = makeStyles({
     root: {
@@ -15,8 +16,9 @@ const useStyles = makeStyles({
 
 const MessageInput = ({ name }) => {
     const classes = useStyles()
-    const avatarPath = gravatarPath('name');
     const [text, setText] = useState('')
+    const time = useSelector((state) => state.time);
+
     return (
         <div className={classes.root}>
             <Grid container>

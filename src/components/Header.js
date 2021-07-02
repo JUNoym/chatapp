@@ -4,9 +4,12 @@ import { colors } from '@material-ui/core';
 
 const useStyles = makeStyles({
     header: {
-        background: 'green',
+        background: 'deepskyblue',
+        border: '5px solid white',
         color: 'white',
-        fontSize: 'bold'
+        fontWeight: 'bold',
+        padding: '15px',
+        borderRadius: '5px'
     }
 })
 
@@ -14,7 +17,7 @@ const Header = () => {
     const classes = useStyles();
     return (
         <div className={classes.header}>
-            リアルタイムチャットアプリ
+            RealTime Chat
         </div>
     )
 }

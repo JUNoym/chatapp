@@ -56,8 +56,8 @@ export default function SignIn({ setName }) {
             <CssBaseline />
             <div className={classes.paper}>
                 <Typography component="h1" variant="h5">
-                    ようこそ
-        </Typography>
+                    RealTime Chat
+                </Typography>
                 <form className={classes.form} noValidate>
                     <TextField
                         variant="outlined"

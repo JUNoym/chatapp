@@ -10,26 +10,30 @@ const useStyles = makeStyles({
         overflow: 'auto',
     }
 })
-const MessageList = ({ name, key, text }) => {
+const MessageList = () => {
     const classes = useStyles()
     const [messages, setMessages] = useState([])
+    // const [times, setTimes] = useState([])
     useEffect(() => {
         messagesRef
             .orderByKey()
             .limitToLast(5) //最新のデータ5件分を取得する
             .on('value', (snapshot) => {
-                //key: -MdSPw-qYbo2jmz-n0Oz, value:{name: {…}, text: "from button"}
-                //{key: -MdSPw-qYbo2jmz-n0Oz, name: 'Junya', text: "from button"}に変更する
+                //0: {key: "-Md_GyPXuGq7aySz2K2f", name: {…}, text: "テスト", time: "13:00"}
+                //{key: -MdSPw-qYbo2jmz-n0Oz, name: 'Junya', text: "from button",time: "13:00"}に変更する
                 const messages = snapshot.val();
+                console.log(messages)
                 if (messages === null) return;
                 const entries = Object.entries(messages) //オブジェクトを[key, value] からなる配列にして返す
+                console.log(entries) //["-Md_GyPXuGq7aySz2K2f", {…}] 配列になって返ってくる
                 const changeNewMessages = entries.map((entry) => {
                     const key = entry[0]
-                    const nameAndText = entry[1]
-                    return { key, ...nameAndText }
+                    const nameAndTextAndTime = entry[1]
+                    return { key, ...nameAndTextAndTime }　// {…}を展開する
                 })
                 console.log(changeNewMessages);
                 setMessages(changeNewMessages)
+                // setTimes(changeNewMessages)
             })
     }, [])
     // messageRef.on()でデータを取得する
@@ -39,8 +43,14 @@ const MessageList = ({ name, key, text }) => {
     return (
         <List className={classes.root}>
             {
-                messages.map(({ key, name, text }) => {
-                    return <MessageItem key={key} name={name} text={text}></MessageItem>
+                messages.map(({ key, name, text, time }) => {
+                    console.log(text)
+                    return (
+                        <>
+                            <MessageItem key={key} name={name} text={text} time={time} />
+                        </>
+                    )
+
                 })
             }
         </List>

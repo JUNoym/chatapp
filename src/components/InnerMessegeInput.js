@@ -1,9 +1,18 @@
 import React, { useState } from 'react'
 import { TextField } from '@material-ui/core'
 import { PushMessage } from '../firebase'
+import { useSelector, useDispatch } from "react-redux";
+
 
 const InnerMessegeInput = ({ name, setText, text }) => {
+    const dispatch = useDispatch();
+
+    const getTime = () => {
+        dispatch({ type: "GET_TIME" })
+    }
+
     const [isComposed, setIsComposed] = useState(false);
+    const time = useSelector((state) => state.time);
 
     return (
         <TextField
@@ -18,7 +27,8 @@ const InnerMessegeInput = ({ name, setText, text }) => {
                 if (text === '') return;
 
                 if (e.key === 'Enter') {
-                    PushMessage({ name, text });
+                    getTime()
+                    PushMessage({ name, text, time });
                     setText('');
                     e.preventDefault();
                 }

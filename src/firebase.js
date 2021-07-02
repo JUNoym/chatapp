@@ -16,6 +16,6 @@ const database = firebase.database()
 export const messagesRef = database.ref('messages')
 
 // ボタンやエンターキーが押された時に実行するのでexportする
-export const PushMessage = ({ name, text }) => {
-    messagesRef.push({ name, text })
+export const PushMessage = ({ name, text, time }) => {
+    messagesRef.push({ name, text, time })
 }
