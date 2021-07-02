@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import {
     ListItem,
     ListItemText,
@@ -16,10 +16,18 @@ const useStyles = makeStyles({
     },
 })
 
-const MessageItem = ({ name, text, time }) => {
+const MessageItem = ({ isLastMessage, name, text, time }) => {
+    const ref = useRef(null)
     const classes = useStyles();
+
+    useEffect(() => {
+        if (isLastMessage) {
+            //Trueの時にスクロール
+            ref.current.scrollIntoView({ behavior: 'smooth' })
+        }
+    }, [isLastMessage])
     return (
-        <ListItem divider={true}>
+        <ListItem divider={true} ref={ref}>
 
             <ListItemText
                 primary={name.name}

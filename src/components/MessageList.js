@@ -17,7 +17,7 @@ const MessageList = () => {
     useEffect(() => {
         messagesRef
             .orderByKey()
-            .limitToLast(5) //最新のデータ5件分を取得する
+            .limitToLast(10) //最新のデータ5件分を取得する
             .on('value', (snapshot) => {
                 //0: {key: "-Md_GyPXuGq7aySz2K2f", name: {…}, text: "テスト", time: "13:00"}
                 //{key: -MdSPw-qYbo2jmz-n0Oz, name: 'Junya', text: "from button",time: "13:00"}に変更する
@@ -39,17 +39,16 @@ const MessageList = () => {
     // orderByKey()でKeyで並び替えることによりKeyはタイムスタンプそのものなので
     // 時系列順に表示させることができる
 
+    // 最新のメッセージが追加された時に　追加されたメッセージがスクロールされて表示されるための実装
+    const length = messages.length　// 最後の要素の時にスクロールをするよう実装する
+
     return (
         <List className={classes.root}>
             {
-                messages.map(({ key, name, text, time }) => {
+                messages.map(({ key, name, text, time }, index) => {
+                    const isLastMessege = length === index + 1
                     console.log(text)
-                    return (
-                        <>
-                            <MessageItem key={key} name={name} text={text} time={time} />
-                        </>
-                    )
-
+                    return <MessageItem key={key} name={name} text={text} time={time} isLastMessage />
                 })
             }
         </List>
