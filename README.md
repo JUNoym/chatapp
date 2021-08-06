@@ -1,6 +1,6 @@
 # chat app
 アプリURL：https://react-chat-app-6fd93.web.app/
-## 作業時間記録表
+### 記録
 6/28 作業開始  
 ・バックエンド実装方法リサーチ4h  
 ・React DjangoでTo Doデモアプリ制作 2h  
