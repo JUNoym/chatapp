@@ -1,4 +1,5 @@
 import { createStore } from "redux";
+//　Githubの新機能のテスト
 
 const initialState = {
     time: '18時00分'
