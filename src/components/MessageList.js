@@ -22,7 +22,6 @@ const MessageList = () => {
                 //0: {key: "-Md_GyPXuGq7aySz2K2f", name: {…}, text: "テスト", time: "13:00"}
                 //{key: -MdSPw-qYbo2jmz-n0Oz, name: 'Junya', text: "from button",time: "13:00"}に変更する
                 const messages = snapshot.val();
-                console.log(messages)
                 if (messages === null) return;
                 const entries = Object.entries(messages) //オブジェクトを[key, value] からなる配列にして返す
                 console.log(entries) //["-Md_GyPXuGq7aySz2K2f", {…}] 配列になって返ってくる
